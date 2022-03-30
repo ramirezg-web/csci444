@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Transform Transition</title>
+    <style>
+      /* centering */
+      body {
+        margin: 0;
+        height: 100vh; /* viewport height (percentage) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #container {
+        display: flex;
+      }
+
+      .compass {
+        padding: 5px;
+        transition-property:transform;
+        transition-duration: 0.5s;
+      }
+      .c1:hover{
+        transform: rotate(90deg);
+
+      }
+      .c2:hover{
+        transform:rotate(180deg);
+        transition-duration:1s;
+      }
+      .c3:hover{
+        transform:rotate(-90deg);
+      }
+      .c4:hover{
+        transform:rotate(-180deg);
+        transition-duration:1s;
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <img class="compass c1" src="compass.svg" width="200" height="200">
+      <img class="compass c2" src="compass.svg" width="200" height="200">
+      <img class="compass c3" src="compass.svg" width="200" height="200">
+      <img class="compass c4" src="compass.svg" width="200" height="200">
+    </div>
+  </body>
+</html>

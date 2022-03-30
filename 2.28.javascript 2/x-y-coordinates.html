@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>X/Y Coordinates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+    body{
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #container{
+      padding:12px;
+    }
+      p {font-family: 'Space Mono', 'Courier New', monospace;}
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <p>X position: <span id="x-pos"></span></p>
+      <p>Y position: <span id="y-pos"></span></p>
+    </div>
+<script type="text/javascript">
+  const background=document.querySelector('body');
+  displayHeight= ()=> background.style.height=window.innerHeight+ "px";
+
+  const textX=document.getElementById('x-pos');
+  const textY=document.getElementById('y-pos');
+  randomColor = () => {
+    let randomNumber = Math.floor(Math.random() * 360);
+    console.log(randomNumber);
+    background.style.backgroundColor = "hsl(" + randomNumber + ", 100%, 50%)";
+  }
+  let hueBrowserRatio;
+  let lightnessBrowserRatio;
+
+  function colorScale(){
+    let browserWidth= window.innerWidth;
+    let browserHeight=window.innerHeight;
+    console.log("browswer width: "+browserWidth);
+    console.log('browser height: '+browserHeight);
+
+    hueBrowserRatio= browserWidth/360;
+    lightnessBrowserRatio=browserHeight/100;
+    console.log('hue ratio: '+hueBrowserRatio);
+    console.log('lightness ratio '+lightnessBrowserRatio);
+  }
+  // function getPosition(event){
+  //   let xPos= event.clientX;
+  //   let yPos= event.clientY;
+  //   //
+  //   textX.textContent= xPos;
+  //   textY.textContent= yPos;
+  //   updateColor(xPos, yPos);
+  // }
+  function getPosition(event) {
+    let xPos = event.clientX;
+    let yPos = event.clientY;
+    updateColor(xPos, yPos);
+  }
+  function updateColor(xPos, yPos){
+    let hue= Math.ceil (xPos/hueBrowserRatio);
+    console.log('Hue: '+hue);
+
+    let lightness=Math.ceil(yPos/lightnessBrowserRatio);
+    console.log('Lightness: ' + lightness);
+
+    //hue saturation and lightness of background Color
+    background.style.backgroundColor= 'hsl(' + hue + ', 100% ' + lightness + '%)';
+    background.style.backgroundColor = "hsl(" + hue + ", 100%, " + lightness + "%)";
+
+  }
+  // window.addEventListener('load', colorScale);
+  // window.addEventListener('load', randomColor);
+
+// update display height when the page loads;
+window.addEventListener('load', displayHeight);
+//update display height when window is resized
+window.addEventListener('resize', displayHeight);
+
+  window.addEventListener('load', function(){
+    randomColor();
+    colorScale();
+  });
+  window.addEventListener('resize', function() {
+    displayHeight();
+    colorScale();
+  });
+  //detect pointer movement
+  window.addEventListener('pointermove', getPosition);
+  window.addEventListener('pointerdown', getPosition);
+
+</script>
+  </body>
+</html>

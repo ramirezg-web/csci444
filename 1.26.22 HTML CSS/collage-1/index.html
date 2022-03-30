@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Collage 1</title>
+    <style>
+      *{
+        margin:0;
+        padding:0;
+      }
+      #container{
+        background: blue;
+        background-image: url('media/all-colors.png');
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        left:0;
+        min-height: 100%;
+        min-width:100%;
+        width: auto;
+        height: auto;
+      }
+      video{
+        position:absolute;
+        top: 0;
+        left: 0;
+        min-height;100%;
+        min-width:100%;
+        width: auto;
+        height: auto;
+        mix-blend-mode: multiply;
+ }
+ audio{
+   position:fixed;
+   top : 50%;
+   right: 50px;
+   mix-blend-mode: lighten;
+ }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    <!-- <source src="media/red.ogg" type="audio/ogg"> -->
+        <!-- <audio controls autoplay or LOOP (loop)>
+          <audio src="media/red.ogg" controls autoplay>
+
+          </audio> -->
+          <!-- autoplay not really possible in most browsers -->
+
+
+    <video muted autoplay playsinline loop src="media/escalator1.mp4" type="video/mp4" width="800" height="450" controls>
+<!-- mu -->
+    </video>
+    <audio controls loop>
+      <source src="media/red.ogg" type="audio/ogg">
+      <source src="media/red.mp3" type="audio/mp3">
+    </audio>
+    </div>
+  </body>
+</html>

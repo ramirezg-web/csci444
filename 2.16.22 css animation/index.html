@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+  margin:0;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+div{
+  width: 600px;
+  height: 400px;
+  position: relative;
+  clip-path: url('#shape');
+}
+img{
+  width: 100%;
+  opacity: 0.5;
+  height: auto;
+  position: absolute;
+  transition-property: opacity;
+  transition-timing-function: linear;
+}
+    </style>
+  </head>
+  <body>
+  <svg width="0" height="0" viewBox="0 0 600 400">
+    <defs>
+      <clipPath id="shape">
+        <polygon points="300, 0 70, 400 530, 400 300, 0"/>
+      </clipPath>
+    </defs>
+  </svg>
+  <div>
+    <img src="tree.jpg">
+    <img src="window.jpg">
+    <img src="city.jpg">
+  </div>
+  <script type="text/javascript">
+    const images=document.querySelectorAll('img');
+  function visibility(event){
+    let h = event.clientX/window.innerWidth;
+    console.log(h);
+    images[0].style.opacity=1-h;
+    images[1].style.opacity=h;
+    let v=event.clientY/window.innerHeight;
+    console.log(v);
+    images[2].style.opacity=1-v;
+  }
+  window.addEventListener('pointermove',visibility);
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Color Field</title>
+  </head>
+
+  <body>
+    <script>
+      const background = document.querySelector('body');
+
+      randomColor = () => {
+        let randomNumber = Math.floor(Math.random() * 360);
+        console.log(randomNumber);
+        background.style.backgroundColor = "hsl(" + randomNumber + ", 100%, 50%)";
+      }
+
+      // window.addEventListener('load', randomColor);
+
+      //map color to x and y Coordinates
+      let hueBrowserRatio;
+      let lightnessBrowserRatio;
+//give width and hieght of browser and get ratio
+      function colorScale(){
+        let browserWidth= window.innerWidth;
+        let browserHeight= window.innerHeight;
+        console.log('browser width: '+ browserWidth);
+        console.log('browser height: '+ browserHeight);
+
+        hueBrowserRatio= browserWidth/360;
+        lightnessBrowserRatio= browserHeight/100;
+        console.log('hue: '+ hueBrowserRatio);
+        console.log('lightness: '+ lightnessBrowserRatio);
+      }
+
+      function getPosition(event){
+        let xPos=event.clientX;
+        let yPos=event.clientY;
+        console.log(xPos);
+        console.log(yPos);
+        updateColor(xPos, yPos);
+      }
+
+      function updateColor(xPos, yPos){
+        let hue= Math.ceil(xPos / hueBrowserRatio);
+        console.log('hue ratio: '+hue);
+        let lightness =Math.ceil(yPos / lightnessBrowserRatio);
+        console.log('lightness ratio: '+lightness);
+
+        background.style.BackgroundColor="#AA0000";
+        //hue saturation and lightness of background Color
+        background.style.backgroundColor= 'hsl(' + hue + ', 100% ' + lightness + '%)';
+      }
+//update scale when page loads
+// window.addEventListener('load', colorScale);
+window.addEventListener('load', function() {
+  randomColor();
+  colorScale();
+  // updateColor();
+});
+
+//detect pointer movement
+window.addEventListener('pointermove', getPosition);
+ window.addEventListener('pointerdown', getPosition);
+
+ window.addEventListener('resize', displayHeight);
+    </script>
+  </body>
+</html>
