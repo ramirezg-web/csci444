@@ -1,0 +1,62 @@
+/* centering */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#data{
+  position: foxed;
+  top:10px;
+  left:10px;
+}
+p {
+  font-family: 'Space Mono', 'Courier New', monospace;
+}
+
+/* proportion and perspective */
+#scene {
+  width: 200px;
+  height: 200px;
+  perspective: 500px;
+  perspective-origin: center top;
+}
+
+.compass {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.layer {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: black;
+  border-radius: 100px;
+}
+
+/* @keyframes rotation {
+  from {transform: rotateX(90deg) translateZ(-35px) rotate(35deg);}
+  to {transform: rotateX(90deg) translateZ(-35px) rotate(50deg);}
+} */
+
+img.layer {
+  background: white;
+  transform: rotateX(90deg) translateZ(-35px);
+  transition: transform 4s;
+}
+
+.layer:nth-child(2) {
+  transform: rotateX(90deg) translateZ(-40px);
+}
+
+.layer:nth-child(3) {
+  transform: rotateX(90deg) translateZ(-45px);
+}
+
+.layer:nth-child(4) {
+  transform: rotateX(90deg) translateZ(-50px);
+}

@@ -1,0 +1,19 @@
+{
+  "us_cities": [
+    {
+      "city": "New York",
+      "state": "New York",
+      "population": 8175133
+    },
+    {
+      "city": "Los Angeles",
+      "state": "California",
+      "population": 3792621
+    },
+    {
+      "city": "Chicago",
+      "state": "Illinois",
+      "population": 2741856
+    }
+  ]
+}

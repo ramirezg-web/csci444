@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+#container {
+  width: 100%;
+  height: 100vh; /* viewport height */
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(4, 25%);
+  perspecitve: 640px;
+  position: fixed;
+}
+
+@keyframes chroma{
+  from {filter: hue-rotate(0);}
+  to {filter: hue-rotate(360deg);}
+}
+
+.color {
+  grid-coumn: 1/5;
+  grid-row: 1/5;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: chroma 9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform: rotate3d(0.5, 1, 0, -30deg) translateZ(-90px);
+}
+
+p{
+  color: cyan;
+  font-size: 6vh;
+  grid-column: 2/4;
+  grid-row: 2/4;
+  align-self: center;
+  mix-blend-mode: overlay;
+  transform: rotate3d(0.5, 1, 0, -30deg) translateZ(60px);
+}
+.animation {
+  grid-column: 3 / 4;
+  grid-row: 2 / 4;
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  align-self: center;
+  justify-self: start;
+  transform: translateZ(200px);
+}
+
+
+
+audio {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  width: 30vh;
+  align-self: end;
+  justify-self: start;
+  transform: rotate3d(0.5, 1, 0, -30deg) translateZ(140px);
+
+}

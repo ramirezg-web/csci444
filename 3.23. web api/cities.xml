@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<us_cities>
+  <city>
+    <name>New York</name>
+    <state>New York</state>
+    <population year="2010">8175133</population>
+  </city>
+  <city>
+    <name>Los Angeles</name>
+    <state>California</state>
+    <population year="2010">3792621</population>
+  </city>
+  <city>
+    <name>Chicago</name>
+    <state>Illinois</state>
+    <population year="2010">2714856</population>
+  </city>
+</us_cities>

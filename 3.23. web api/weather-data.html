@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>NYC Weather Data</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+      h1, p {
+        font-family: 'Space Mono', 'Courier New', monospace;
+        font-weight: lighter;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button type="button" name="button">Access Weather</button>
+
+    <p></p>
+
+    <script type="text/javascript">
+      accessData= async()=> {
+        let url= "https://api.openweathermap.org/data/2.5/weather?q=New+York&units=imperial&APPID=7f12974fb29ca234ee8dea4386063a22";
+        //let response
+        let response= await fetch(url);
+
+        if (response.ok){ //http status of 200-299
+          let json= await response.json();
+          console.log(json);
+          weatherData(json);
+        } else{
+          console.log('error: '+ response.status);
+        }
+      }
+      weatherData=(response)=>{
+        //access value with dot syntax
+        let temperature= response.main.temp;
+        console.log(temperature)
+        document.querySelector('p').textContent= Math.round(temperature)+ " degrees";
+      }
+      document.querySelector('button').addEventListener('click', accessData);
+    </script>
+  </body>
+</html>
