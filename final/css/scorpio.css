@@ -1,0 +1,166 @@
+a{
+      position: fixed;
+       top : 2%;
+       right:5%;
+       font-size: 1em;
+       font-style: italic;
+       font-family: cursive;
+       font-stretch: expanded;
+    }
+    audio{
+
+    }
+    img{
+      z-index: -100;
+      opacity: 0.2;
+    }
+    #container{
+        background-image: url('../media/spiritual.gif');
+        background-size: cover;
+        position: fixed;
+        top: 0;
+        left:0;
+        min-height: 100%;
+        min-width:100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        height: 100vh;
+  transition: 2s;
+
+        background-position:center;
+
+          }
+svg {
+  border: 5px solid #eee;
+  display: block;
+  margin: 10em auto;
+  background-color: hsla(89, 43%, 51%, 0.2);
+  color: white;
+
+}
+svg.elements {
+       fill: currentColor;
+       height: 1em;
+       width: 1em;
+     }
+body{
+  background-color:white;
+}
+
+video{
+      position:absolute;
+      top: 0;
+      left: 0;
+      min-height:100%;
+      min-width:100%;
+      width: auto;
+      height: auto;
+      mix-blend-mode: multiply;
+      background-size: cover;
+
+      /* filter: blur(10px); */
+   transition: filter 5s;
+  }
+
+  .globe {
+  margin: 0;
+        display: flex;
+        height: 50vh;
+        align-items: center;
+        justify-content: center;
+
+}
+hr {
+   width: 50px;
+   border-color: transparent;
+   border-right-color: rgba(255, 255, 255, 0.7);
+   border-right-width: 50px;
+   position: absolute;
+   bottom: 100%;
+   transform-origin: 100% 50%;
+   animation-name: rain;
+   animation-duration: 1s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+ }
+
+ @keyframes rain {
+   from {
+     transform: rotate(105deg) translateX(0);
+   }
+   to {
+     transform: rotate(105deg) translateX(calc(100vh + 20px));
+   }
+ }
+
+ @keyframes grows {
+     0% {
+         transform: scale(1.0);
+         -webkit-transform: scale(1.0);
+     }
+     100% {
+         transform: scale(2.0);
+         -webkit-transform: scale(2.0);
+     }
+ }
+
+ #yoga1 {
+     animation: grows 5s ease-in-out infinite alternate;
+     -webkit-animation: grows 5s ease-in-out infinite alternate;
+ }
+
+ .arrow-circle-down {
+ 	display: block;
+ 	/* width: 40px;
+ 	height: 40px; */
+ 	/* margin: 16px 0; */
+ 	/*fill: #fff;*/
+ }
+
+ .bounce {
+ 	-webkit-animation: bounce 2s;
+ 	        animation: bounce 2s;
+ 	-webkit-animation-iteration-count: infinite;
+ 	        animation-iteration-count: infinite;
+ }
+
+
+
+ @keyframes bounce {
+ 	0%,
+ 	25%,
+ 	50%,
+ 	75%,
+ 	100% {
+ 		-webkit-transform: translateY(0);
+ 		        transform: translateY(0);
+ 	}
+ 	40% {
+ 		-webkit-transform: translateY(-20px);
+ 		        transform: translateY(-20px);
+ 	}
+ 	60% {
+ 		-webkit-transform: translateY(-12px);
+ 		        transform: translateY(-12px);
+ 	}
+ }
+
+
+ @keyframes chroma{
+  from {filter: hue-rotate(0);}
+  to {filter: hue-rotate(360deg);}
+}
+.color {
+
+}
+.animation {
+  grid-column: 3 / 4;
+  grid-row: 2 / 4;
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  align-self: center;
+  justify-self: start;
+  transform: translateZ(200px);
+}

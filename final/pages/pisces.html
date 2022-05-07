@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pisces </title>
+    <link rel="stylesheet" href="../css/pisces.css">
+ <style>
+   body {
+         margin: 0;
+         overflow: hidden;
+       }
+       canvas{
+       position:absolute;
+       left:0;
+       top:0;
+       z-index:-1;
+         transition: 2s;
+     }
+     audio{
+       z-index:-1;
+     }
+ </style>
+  </head>
+  <body>
+  <a href="index.html">  <h1>Home Base </h1></a>
+    <div id="container">
+
+    </div>
+    <canvas id="drawing" style="z-index:-1"></canvas>
+    <div style = 'display: none;'>
+         <img id = 'img' src = '../media/starry.jpeg' alt = 'Black Moon'>
+       </div>
+
+       <div class="yinyang"></div>
+
+       <div class="wrap rotor-x">
+         <div class="wrap rotor-y">
+           <div class="wrap rotor-z">
+             <div class="triangle bottom face-1"></div>
+             <div class="triangle bottom face-2"></div>
+             <div class="triangle bottom face-3"></div>
+             <div class="triangle bottom face-4"></div>
+             <div class="triangle bottom face-5"></div>
+             <div class="triangle bottom face-6"></div>
+             <div class="triangle bottom face-7"></div>
+             <div class="triangle bottom face-8"></div>
+
+             <div class="triangle middle-bottom face-1"></div>
+             <div class="triangle middle-bottom face-2"></div>
+             <div class="triangle middle-bottom face-3"></div>
+             <div class="triangle middle-bottom face-4"></div>
+             <div class="triangle middle-bottom face-5"></div>
+             <div class="triangle middle-bottom face-6"></div>
+             <div class="triangle middle-bottom face-7"></div>
+             <div class="triangle middle-bottom face-8"></div>
+
+             <div class="triangle middle-top face-1"></div>
+             <div class="triangle middle-top face-2"></div>
+             <div class="triangle middle-top face-3"></div>
+             <div class="triangle middle-top face-4"></div>
+             <div class="triangle middle-top face-5"></div>
+             <div class="triangle middle-top face-6"></div>
+             <div class="triangle middle-top face-7"></div>
+             <div class="triangle middle-top face-8"></div>
+
+             <div class="triangle up face-1"></div>
+             <div class="triangle up face-2"></div>
+             <div class="triangle up face-3"></div>
+             <div class="triangle up face-4"></div>
+             <div class="triangle up face-5"></div>
+             <div class="triangle up face-6"></div>
+             <div class="triangle up face-7"></div>
+             <div class="triangle up face-8"></div>
+
+           </div>
+         </div>
+       </div>
+
+       <div id="breathing-button">Breathe</div>
+
+ <video loop autoplay controls src="../media/moon.mp4" autoplay poster="">
+
+         </video>
+
+       <audio loop src="../media/pisces.mp3">
+
+       </audio>
+
+     <script src="../js/pisces.js"></script>
+  </body>
+</html>
