@@ -1,5 +1,8 @@
 # csci444 CSCI-UA.0380-001
-Drawing on the Web explores ways in which markup language, style language, and programming language can be applied to generate interactive, web-based graphics.
+Drawing on the Web explores ways in which markup language, style language, and programming language can be applied to generate interactive, web-based graphics. 
+# AVAILABLE HERE
+# https://ramirezg-web.github.io/csci444/
+
 
 Lecture Topics
 HTML and CSS
