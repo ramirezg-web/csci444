@@ -1,0 +1,206 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Canvas Gentle Ramirez</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    h1{
+      text-align: center;
+      margin: auto;
+      margin-top: 10px;
+    }
+    h4{
+      text-align: center;
+      margin: auto;
+      margin-top: 10px;
+    }
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: gray;
+}
+
+#frame {
+  width: 1260px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-evenly;
+}
+
+canvas {
+  width: 600px;
+  height: 400px;
+  background-color: black;} /* change or remove this color */
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="text">
+      <h1>Pisces On Saturn</h1>
+      <h4>Time isn't linear. It ebbs and flows just like the
+      waters Pisces swims in. Below Saturn's moon, Titan, tour in
+    seen through the Pisces Zodiac Symbol using SVG Path. Positioning the
+  viewer to use discernment that everything is not as it appears, along with
+  other Piscean and Saturain themes. </h4>
+  <h4>Its mirror, contains a mantra of encouragement when faced with disillusion, to trust in
+  every "full circle" moment that brings fortune and favor into your expeirence</h4>
+    </div> -->
+
+    <div id="frame">
+    <canvas id="c1" width="600" height="400"></canvas>
+    <canvas id="c2" width="600" height="400"></canvas>
+    </div>
+
+    <div style="display: none">
+    <video muted autoplay loop playsinline src="titan.mp4"</video>
+    </div>
+
+    <script>
+      const canvas = document.querySelector('canvas');
+      const context = canvas.getContext('2d');
+
+      let width;
+      let height;
+
+      // get ratio of the resolution in physical pixels to the resolution in CSS pixels
+      let pxScale = window.devicePixelRatio;
+
+      const video =document.querySelector('video');
+
+      let imgScale=10;
+//VIDEO
+      function setup() {
+        video.play();
+        // fixed canvas size
+        width = canvas.width;
+        height = canvas.height;
+
+        // set the CSS display size
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+
+        // set the number of display pixels, scaled for device resolution
+        canvas.width = width * pxScale;
+        canvas.height = height * pxScale;
+
+        // normalize the coordinate system
+        context.scale(pxScale, pxScale);
+      }
+
+      function draw() {
+        context.drawImage(video, 0, 0, width /(imgScale*pxScale), height /(imgScale*pxScale));
+        //sample pixels from the video , scale it down, and redraw as shapes
+        //pixel array formula to access video image data
+        let imgData=context.getImageData(0,0,width/imgScale, height/imgScale);
+        let data=imgData.data;
+        //clear original video
+        context.clearRect(0,0,width,height);
+
+
+        for (let y=0; y< imgData.height; y++){
+          //iterate over every row and for every row access every column of pixels
+          for (let x=0; x <imgData.width ; x++){
+            let index= (x+y*imgData.width)*4// index position of every pixel
+
+            let r =data[index+0]; //red
+            let g =data[index+1]; //green
+            let b =data[index+2]; //blue
+            let a =data[index+3]; //alpha
+
+            //apply RGB as the fill color to subsequent shapes
+            context.fillStyle="rgba("+ r+","+g+"," +b+ ",0.9)";
+
+            //to translate you need to save and restore
+
+            context.save();
+            context.translate(x*imgScale, y*imgScale);
+            context.scale(0.2, 0.2);
+            let path2 = new Path2D("M 20 40 L 100 20 L 175 125 L 120 180 z");
+            let path= new Path2D("M34.717 5.074c0.978-0.874 2.047-1.703 3.173-2.454l0.105-0.066 0.046-1.641c-2.459 1.317-4.578 2.854-6.463 4.635l0.014-0.013c-2.885 2.77-4.553 5.691-4.989 8.724h-15.072c-0.209-3.36-1.908-6.589-5.083-9.633-1.871-1.769-3.989-3.306-6.291-4.548l-0.157-0.077 0.084 3.003c1.132 0.716 2.106 1.428 3.030 2.198l-0.045-0.037c4.465 3.721 7.014 7.061 5.96 11.338-1.309 5.316-5.086 9.218-7.4 10.812-0.288 0.198-0.571 0.375-0.847 0.544l0.073 2.585c0.479-0.14 2.279-0.738 4.271-2.327 2.127-1.703 4.934-4.931 6.158-10.634 0.128-0.575 0.217-1.251 0.249-1.941l0.001-0.027h14.96c-0.004 0.109-0.006 0.236-0.006 0.364 0 0.89 0.098 1.758 0.284 2.592l-0.015-0.079c2.188 10.21 9.393 12.665 10.428 12.967l0.049-1.752c-0.348-0.218-0.708-0.459-1.076-0.732-2.315-1.713-5.348-4.953-6.656-10.665-1.053-4.593 0.751-9.137 5.214-13.136z");
+            context.globalCompositeOperation= 'soft-light';
+            context.fill(path);
+            context.restore();
+          }
+        }
+
+        requestAnimationFrame(draw);
+
+      }
+
+      // wait for DOM to load before drawing to the canvas
+      window.addEventListener('load', () => {
+        setup();
+        draw();
+      });
+
+
+
+      const canvas2 = document.getElementById('c2');
+      const context2 = canvas2.getContext('2d');
+
+      let width2;
+      let height2;
+
+
+      function setup2() {
+        width2 = canvas2.width;
+        height2 = canvas2.height;
+
+        canvas2.style.width = width2 + 'px';
+        canvas2.style.height = height2 + 'px';
+
+        canvas2.width = width2 * pxScale;
+        canvas2.height = height2 * pxScale;
+
+        context2.scale(pxScale, pxScale);
+      }
+
+      let degrees=0;
+
+      function draw2() {
+        context2.drawImage(canvas, 0, 0, 600, 400);
+
+        context2.clearRect(0,0,width, height);
+        context2.filter='invert(25%)';
+        context2.drawImage(canvas, 0, 0, 600, 400);
+
+        context2.save();
+            context2.translate(width/2, height/2);
+            context2.rotate((Math.PI/180)*degrees);
+            context2.save();
+            context2.translate(-50,-50);
+
+
+            context2.strokeStyle = 'blue';
+      context2.beginPath();
+    context2.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+    context2.moveTo(110, 75);
+    context2.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+    context2.moveTo(65, 65);
+    context2.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+    context2.moveTo(95, 65);
+    context2.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+    context2.stroke();
+    context2.restore();
+    context2.restore();
+    degrees +=2;
+    context2.font= "40px sans-serif";
+        context2.textBaseline = "middle";
+        context2.textAlign = "center"
+        context2.strokeStyle = "yellow";
+        context2.strokeText("Turn That Frown Upside Down", width/2, height/2);
+        requestAnimationFrame(draw2);
+   }
+
+   window.addEventListener('load', () => {
+     setup2();
+     draw2();
+   });
+    </script>
+  </body>
+</html>

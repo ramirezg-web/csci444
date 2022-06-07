@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Canvas Gentle Ramirez</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    h1{
+      text-align: center;
+      margin: auto;
+      margin-top: 10px;
+    }
+    h4{
+      text-align: center;
+      margin: auto;
+      margin-top: 10px;
+    }
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: gray;
+}
+
+#frame {
+  width: 1260px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-evenly;
+}
+
+canvas {
+  width: 600px;
+  height: 400px;
+  background-color: black;} /* change or remove this color */
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="text">
+      <h1>Pisces On Saturn</h1>
+      <h4>Time isn't linear. It ebbs and flows just like the
+      waters Pisces swims in. Below Saturn's moon, Titan, tour in
+    seen through the Pisces Zodiac Symbol using SVG Path. Positioning the
+  viewer to use discernment that everything is not as it appears, along with
+  other Piscean and Saturain themes. </h4>
+  <h4>Its mirror, contains a mantra of encouragement when faced with disillusion, to trust in
+  every "full circle" moment that brings fortune and favor into your expeirence</h4>
+    </div> -->
+
+    <div id="frame">
+    <canvas id="c1" width="600" height="400"></canvas>
+    <canvas id="c2" width="600" height="400"></canvas>
+    </div>
+
+    <div style="display: none">
+    <video muted autoplay loop playsinline src="titan.mp4"</video>
+    </div>
+</body>
+</html>
