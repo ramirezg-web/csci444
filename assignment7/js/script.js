@@ -22,7 +22,7 @@ function background_2d (){
   canvas.width = width * pxScale;
   canvas.height = height * pxScale;
   context.scale(pxScale, pxScale);
-  img.src = "media/solar.png";
+  img.src = "media/test.png";
   console.log(width);
   console.log(height);
   img.onload = function(){
